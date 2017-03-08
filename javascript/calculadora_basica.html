@@ -6,12 +6,14 @@
         function suma(){
             var a = document.getElementById("op1").value;
             var b = document.getElementById("op2").value;
-
+            controlarErrores(a,b);
             a = parseFloat(a);
             b = parseFloat(b);
             document.getElementById("result").innerHTML= a+b;
-
             console.log("en funcion suma: " + (a+b));
+
+
+
         }
         function resta(){
             var a = document.getElementById("op1").value;
@@ -43,6 +45,16 @@
 
             console.log("en funcion division: " + (a/b));
         }
+
+        function controlarErrores(a,b){
+            if (isNaN(a) || isNaN(b)){
+                alert("Introduzca dos numeros validos")
+                return true;
+            }else{
+                return false;
+            }
+
+        }
     </script>
 </head>
 <body>
@@ -53,5 +65,6 @@
     <button type="button" onclick="resta()"> Resta</button>
     <button type="button" onclick="multiplicacion()"> Multiplicación</button>
     <button type="button" onclick="division()"> División</button>
+    
 </body>
 </html>
