@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/javascript">
+        function suma(){
+            var a = document.getElementById("op1").value;
+            var b = document.getElementById("op2").value;
+
+            a = parseFloat(a);
+            b = parseFloat(b);
+            document.getElementById("result").innerHTML= a+b;
+
+            console.log("en funcion suma: " + (a+b));
+        }
+        function resta(){
+            var a = document.getElementById("op1").value;
+            var b = document.getElementById("op2").value;
+
+            a = parseFloat(a);
+            b = parseFloat(b);
+            document.getElementById("result").innerHTML= a-b;
+
+            console.log("en funcion resta: " + (a-b));
+        }
+        function multiplicacion(){
+            var a = document.getElementById("op1").value;
+            var b = document.getElementById("op2").value;
+
+            a = parseFloat(a);
+            b = parseFloat(b);
+            document.getElementById("result").innerHTML= a*b;
+
+            console.log("en funcion multiplicacion: " + (a*b));
+        }
+        function division(){
+            var a = document.getElementById("op1").value;
+            var b = document.getElementById("op2").value;
+
+            a = parseFloat(a);
+            b = parseFloat(b);
+            document.getElementById("result").innerHTML= a/b;
+
+            console.log("en funcion division: " + (a/b));
+        }
+    </script>
+</head>
+<body>
+    <input id="op1" type="text">
+    <input id="op2" type="text">
+    <p id="result">Resultado</p>
+    <button type="button" onclick="suma()"> Suma</button>
+    <button type="button" onclick="resta()"> Resta</button>
+    <button type="button" onclick="multiplicacion()"> Multiplicación</button>
+    <button type="button" onclick="division()"> División</button>
+</body>
+</html>

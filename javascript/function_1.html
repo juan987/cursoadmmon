@@ -45,30 +45,71 @@
             }
         }
 
-        function miRandom(){
+        function miRandom2(){
             var miRandom;
-            var i = 1;
+            var i = 0;
+            var c = "";
+            
             do{
                 miRandom = Math.random();
+                c += miRandom + "\n";
+                console.log('el numero random es: ' +miRandom +"   " +i);
                 i++;
+
 
             }while(miRandom<0.8);
+            document.getElementById("demo").innerHTML = c;
 
-                console.log('el numero random es: ' +miRandom 
-                +'numero de veces se ejecuta el loop: ' +i);
+            
+
+            /*while(Math.random()<0.8){
                 i++;
+                console.log('el numero random es: '  +i);
+            }
+
+                console.log('numero de veces se ejecuta el loop: ' +i);
+                i++; */
         }
 
         factorialDeUnNumero();
         numMensajes();
-        miRandom();
+        //miRandom2();
 
 
     </script>
 
-
     <body>
         <button type="button" onclick="saluda()">Click Me!</button>
+        <br/>
+        <p id="demo"></p>
+
+    <script type="text/javascript">
+
+        function miRandom(){
+            var miRandom;
+            var i = 0;
+            var c = "";
+            
+            do{
+                miRandom = Math.random();
+                c += miRandom  +" " +"\n";
+                console.log('el numero random es: ' +miRandom +"   " +i);
+                i++;
+            }while(miRandom<0.8);
+            document.getElementById("demo").innerHTML = c;
+            
+            //Tb funciona asi.
+            /*
+            var ii = 0;
+            while(Math.random()<0.8){
+                i++;
+            }
+            console.log('numero de veces se ejecuta el loop: ' +ii);
+            */
+
+        }
+        miRandom();
+    </script>
     </body>  
 </html>  
 
