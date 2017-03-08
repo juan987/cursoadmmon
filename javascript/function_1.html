@@ -1,0 +1,34 @@
+<html>
+    <script type="text/javascript">
+        function saluda(){
+            console.log("en funcion saluda");
+            alert("saludos");
+        }
+
+        //************************************
+        var variableLocal = "esta es una variable global en realidad";
+        function probandoVariables(){
+            alert(variableLocal);
+            variableGlobalAlNoEstarDeclarada = "VariableGlobalNoDeclarada";
+        }
+
+        function probandoConVariablesComoParametros(variableLocal){
+            alert(variableGlobalAlNoEstarDeclarada);
+            alert(variableLocal);
+        }
+
+        //Si ejecuta esta linea da error por que hay una variable no
+        //declarada = variableGlobalAlNoEstarDeclarada.
+        //probandoConVariablesComoParametros(variableLocal);
+        probandoVariables();
+        probandoConVariablesComoParametros(variableLocal);
+
+    </script>
+
+
+    <body>
+        <button type="button" onclick="saluda()">Click Me!</button>
+    </body>  
+</html>  
+
+
