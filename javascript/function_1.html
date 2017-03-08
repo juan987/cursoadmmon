@@ -20,8 +20,49 @@
         //Si ejecuta esta linea da error por que hay una variable no
         //declarada = variableGlobalAlNoEstarDeclarada.
         //probandoConVariablesComoParametros(variableLocal);
+        
         probandoVariables();
         probandoConVariablesComoParametros(variableLocal);
+
+
+        function factorialDeUnNumero(){
+            var x= 17;//factorial 5 es 120
+            var result = 1;
+            var factorial = 1;
+            do {
+                result = result * factorial;
+                factorial++;
+            }
+            while (factorial <= x);
+            alert('el factorial de ' +x +' es igual a ' +result)
+        }
+
+        function numMensajes(){
+            var i = 1;
+            while (i<=100) {
+                console.log('Hola numero :', i);
+                i++;
+            }
+        }
+
+        function miRandom(){
+            var miRandom;
+            var i = 1;
+            do{
+                miRandom = Math.random();
+                i++;
+
+            }while(miRandom<0.8);
+
+                console.log('el numero random es: ' +miRandom 
+                +'numero de veces se ejecuta el loop: ' +i);
+                i++;
+        }
+
+        factorialDeUnNumero();
+        numMensajes();
+        miRandom();
+
 
     </script>
 
