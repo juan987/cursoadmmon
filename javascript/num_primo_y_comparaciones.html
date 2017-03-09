@@ -41,10 +41,21 @@
             var b = document.getElementById("op2").value;
             a = parseInt(a);
             b = parseInt(b);
+            /*
             if(a==b){
                 document.getElementById("compara_numerico").innerHTML= a +"  es igual a "+b;
             }else{
                 document.getElementById("compara_numerico").innerHTML= a +"  NO es igual a "+b;
+            }
+            */
+
+            //mejor:
+            if(a>b){
+                document.getElementById("compara_numerico").innerHTML= a +"  es mayor que "+b;
+            }else if(a<b){
+                document.getElementById("compara_numerico").innerHTML= a +"  es menor que "+b;
+            }else{
+                document.getElementById("compara_numerico").innerHTML= a +"  es igual a "+b;
             }
         }
 
@@ -76,8 +87,71 @@
             miArray.push(a);
         }
 
+        function pop(){
+            var a = document.getElementById("dato").value;
+            miArray.pop();
+            document.getElementById("resultadoArray").innerHTML= miArray;
+        }
+
+        function shift(){
+            var a = document.getElementById("dato").value;
+            miArray.shift();
+            document.getElementById("resultadoArray").innerHTML= miArray;
+        }
+
+        function reverse(){
+            var a = document.getElementById("dato").value;
+            miArray.reverse();
+            document.getElementById("resultadoArray").innerHTML= miArray;
+        }
+
+        function toString(){
+            var a = document.getElementById("dato").value;
+            miArray.toString();
+            document.getElementById("resultadoArray").innerHTML= miArray;
+        }
+
         function muestraArray(){
             document.getElementById("resultadoArray").innerHTML= miArray;
+        }
+
+        function comparaFechas(){
+            var miFecha1 = new Date(document.getElementById("date1").value);
+            console.log('fecha1: ', miFecha1.toDateString());
+            var xx = miFecha1.getTime();
+            console.log('fecha1 en millis: ', xx );
+            var miFecha2 = new Date(document.getElementById("date2").value);
+            var diffInSec = (miFecha2.getTime() - miFecha1.getTime())/1000
+
+            document.getElementById("compara_fechas").innerHTML= diffInSec;
+        }
+
+        var fechas = [];
+        var incidencias = [];
+
+        function guardarIncidencia(){
+            fechas.push(document.getElementById("dateIncidencia").value);
+            incidencias.push(document.getElementById("incidencia").value);
+
+            var c = "";
+            for(var i=0; i<fechas.length; i++){
+                c += fechas[i] + "  " +incidencias[i] +'\n';
+            }
+            console.log('lista de incidencias: ', c)
+            document.getElementById("dateIncidencia").innerHTML= "lola";
+            document.getElementById("incidencia").innerHTML= "lola";
+
+        }
+
+        //ejercicio con arguments.lengt y callee
+        function suma(a,b){
+            var totalArg = arguments.length;
+            if (totalArg == 0 || totalArg == 1){
+                console.log('introduzca dos o mas argumentos');
+                return;
+            }
+
+            //for(var i=o; i<=)
         }
 
     </script>
@@ -114,11 +188,45 @@
     <h3>Arrays</h3>
     Introduce un dato:<input id="dato" type="text">
     <button type="button" onclick="meteEnArray()"> mete</button>
+    <button type="button" onclick="pop()"> pop</button>
+    <button type="button" onclick="shift()"> shift</button>
+    <button type="button" onclick="reverse()"> reverse</button>
+    <button type="button" onclick="toString()"> toString</button>
     <button type="button" onclick="muestraArray()"> muestra</button>
     <br/>
     <p id="resultadoArray">Resultado:</p>
     <br/>
 
-    
+    <h3>Diferencia entre dos fechas en segundos</h3>
+    <input id="date1" type="date">
+    <input id="date2" type="date">
+    <br/>
+    <br/>
+    <button type="button" onclick="comparaFechas()"> Comparar las fechas</button>
+    <br/>
+    Diferencia en segundos:
+    <br/>
+    <p id="compara_fechas"></p>
+
+    <br/>
+
+    <h3>Histórico de incidencias, NO esta completo</h3>
+    Introduce una fecha:<input id="dateIncidencia" type="date"><br/>
+    Describe la incidencia:<input id="incidencia" type="<text>">
+    <br/>
+    <br/>
+    <button type="button" onclick="guardarIncidencia()"> Guardar incidencia</button>
+    <br/>
+
+    <h3>Suma cualquier numero de parametros</h3>
+    Introduce numeros separados por espacios:<input id="numeros" type="text"><br/>
+    Describe la incidencia:<input id="incidencia" type="<text>">
+    <br/>
+    <br/>
+    <button type="button" onclick="guardarIncidencia()"> Guardar incidencia</button>
+    <br/>
+
+
+
 </body>
 </html>
