@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/javascript">
+       function esPrimo(){
+
+           var contador = 2;
+           var primo=true;
+            
+            while ((primo) && (contador!=numero)){
+            if (numero % contador == 0)
+                primo = false;
+            contador++;
+            }
+       }
+
+    function primo()
+	{
+		var valor=parseInt(document.getElementById("primo").value);
+		var NumeroPrimo=true;
+ 
+		for(i=1;i<valor;i++)
+		{
+			// If factor
+			if(valor/i == Math.round(valor/i) && i!=1 && i!=valor)
+			{
+				NumeroPrimo=false;
+				break;
+			};
+		};
+ 
+		if(NumeroPrimo)
+			document.getElementById("resultado").innerHTML="El numero "+valor+" es Primo";
+		else
+			document.getElementById("resultado").innerHTML="El numero "+valor+" NO es Primo";
+	}
+
+    function compara_numerico(){
+            var a = document.getElementById("op1").value;
+            var b = document.getElementById("op2").value;
+            a = parseInt(a);
+            b = parseInt(b);
+            if(a==b){
+                document.getElementById("compara_numerico").innerHTML= a +"  es igual a "+b;
+            }else{
+                document.getElementById("compara_numerico").innerHTML= a +"  NO es igual a "+b;
+            }
+        }
+
+    function compara_texto(){
+            var a = document.getElementById("op1").value;
+            var b = document.getElementById("op2").value;
+
+            /*
+            if(a==b){
+                document.getElementById("compara_texto").innerHTML= a +"  es igual a "+b;
+            }else{
+                document.getElementById("compara_texto").innerHTML= a +"  NO es igual a "+b;
+            }
+            */
+
+            //mejor:
+            if(a>b){
+                document.getElementById("compara_texto").innerHTML= a +"  es mayor que "+b;
+            }else if(a<b){
+                document.getElementById("compara_texto").innerHTML= a +"  es menor que "+b;
+            }else{
+                document.getElementById("compara_texto").innerHTML= a +"  es igual a "+b;
+            }
+        }
+
+        var miArray = [];
+        function meteEnArray(){
+            var a = document.getElementById("dato").value;
+            miArray.push(a);
+        }
+
+        function muestraArray(){
+            document.getElementById("resultadoArray").innerHTML= miArray;
+        }
+
+    </script>
+</head>
+<body>
+    <h3>Numero primo</h3>
+    Introduce un numero:<input id="primo" type="text">
+    <button type="button" onclick="primo()"> Es un numero primo?</button>
+    <br/>
+    <p id="resultado">Resultado:</p>
+    <br/>
+
+    <h3>Comparaciones</h3>
+    <input id="op1" type="text">
+    <input id="op2" type="text">
+
+
+    <br/>
+    <br/>
+    <button type="button" onclick="compara_numerico()"> compara_numerico</button>
+    <br/>
+    Igualdad Numerica:
+    <br/>
+    <p id="compara_numerico"></p>
+
+    <br/>
+    <button type="button" onclick="compara_texto()"> compara_texto</button>
+    <br/>
+    Igualdad de texto:
+    <br/>
+    <p id="compara_texto"></p>
+    <br/>
+
+    <h3>Arrays</h3>
+    Introduce un dato:<input id="dato" type="text">
+    <button type="button" onclick="meteEnArray()"> mete</button>
+    <button type="button" onclick="muestraArray()"> muestra</button>
+    <br/>
+    <p id="resultadoArray">Resultado:</p>
+    <br/>
+
+    
+</body>
+</html>

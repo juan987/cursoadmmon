@@ -6,11 +6,12 @@
         function suma(){
             var a = document.getElementById("op1").value;
             var b = document.getElementById("op2").value;
+            var precision = document.getElementById("precision").value;
             controlarErrores(a,b);
             a = parseFloat(a);
             b = parseFloat(b);
-            document.getElementById("result").innerHTML= a+b;
-            console.log("en funcion suma: " + (a+b));
+            document.getElementById("result").innerHTML= (a+b).toFixed(precision);
+            console.log("en funcion suma: " + (a+b).toFixed(precision));
 
 
 
@@ -18,32 +19,35 @@
         function resta(){
             var a = document.getElementById("op1").value;
             var b = document.getElementById("op2").value;
+            var precision = document.getElementById("precision").value;
 
             a = parseFloat(a);
             b = parseFloat(b);
-            document.getElementById("result").innerHTML= a-b;
+            document.getElementById("result").innerHTML= (a-b).toFixed(precision);
 
-            console.log("en funcion resta: " + (a-b));
+            console.log("en funcion resta: " + (a-b).toFixed(precision));
         }
         function multiplicacion(){
             var a = document.getElementById("op1").value;
             var b = document.getElementById("op2").value;
+            var precision = document.getElementById("precision").value;
 
             a = parseFloat(a);
             b = parseFloat(b);
-            document.getElementById("result").innerHTML= a*b;
+            document.getElementById("result").innerHTML= (a*b).toFixed(precision);
 
-            console.log("en funcion multiplicacion: " + (a*b));
+            console.log("en funcion multiplicacion: " + (a*b).toFixed(precision));
         }
         function division(){
             var a = document.getElementById("op1").value;
             var b = document.getElementById("op2").value;
+            var precision = document.getElementById("precision").value;
 
             a = parseFloat(a);
             b = parseFloat(b);
-            document.getElementById("result").innerHTML= a/b;
+            document.getElementById("result").innerHTML= (a/b).toFixed(precision);
 
-            console.log("en funcion division: " + (a/b));
+            console.log("en funcion division: " + (a/b).toFixed(precision));
         }
 
         function controlarErrores(a,b){
@@ -60,6 +64,7 @@
 <body>
     <input id="op1" type="text">
     <input id="op2" type="text">
+    <input type="text" name="precision" value="precision" id="precision">
     <p id="result">Resultado</p>
     <button type="button" onclick="suma()"> Suma</button>
     <button type="button" onclick="resta()"> Resta</button>

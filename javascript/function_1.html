@@ -21,8 +21,8 @@
         //declarada = variableGlobalAlNoEstarDeclarada.
         //probandoConVariablesComoParametros(variableLocal);
         
-        probandoVariables();
-        probandoConVariablesComoParametros(variableLocal);
+        //probandoVariables();
+        //probandoConVariablesComoParametros(variableLocal);
 
 
         function factorialDeUnNumero(){
@@ -71,31 +71,40 @@
                 i++; */
         }
 
-        factorialDeUnNumero();
-        numMensajes();
-        //miRandom2();
-
-
-    </script>
-
-    <body>
-        <button type="button" onclick="saluda()">Click Me!</button>
-        <br/>
-        <p id="demo"></p>
-
-    <script type="text/javascript">
-
         function miRandom(){
             var miRandom;
             var i = 0;
             var c = "";
+
+            var table = document.getElementById("filaDeMiTabla");
+
             
             do{
                 miRandom = Math.random();
-                c += miRandom;
-                c += "<br/>";
+                c += miRandom +"<br/>";
+                //c += "<br/>";
                 console.log('el numero random es: ' +miRandom +"   " +i);
                 i++;
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                var txt = document.createTextNode(miRandom);
+
+
+                td.appendChild(txt);
+                tr.appendChild(td);
+                table.appendChild(tr);
+                //creo una nueva linea en la Tabla con el random producido
+                //t.tBodies[0].appendChild(r)
+                //document.getElementById("filaDeMiTabla").appendChild("<tr><td>"+miRandom+"</td></tr>");
+                
+                
+                //Esto solo inserta una vez y sobreescribe, solo queda el ultimo valor del loop.
+                /*
+                document.getElementById("filaDeMiTabla").innerHTML =
+                            "<tr><td>"+miRandom+"</td></tr>"; 
+                */
+
             }while(miRandom<0.8);
             document.getElementById("demo").innerHTML = c;
             
@@ -108,8 +117,49 @@
             console.log('numero de veces se ejecuta el loop: ' +ii);
             */
 
+            //Para generar filas en una Tabla
+            /*
+            var table = document.getElementById("targettable");
+
+            var tr = document.createElement("tr");
+            var td = document.createElement("td");
+            var txt = document.createTextNode("some value");
+
+            td.appendChild(txt);
+            tr.appendChild(td);
+            table.appendChild(tr);
+            */
+
         }
+
+        //factorialDeUnNumero();
+        //numMensajes();
+        //miRandom2();
+
+
+    </script>
+
+    <body>
+        <button type="button" onclick="saluda()">Click Me!</button>
+        <br/>
+        <p id="demo"></p>
+
+        <table border="2">
+            <thead>
+                <tr>
+                    <th>Mi Tabla</th>
+                </tr>
+            </thead>
+            <tbody id="filaDeMiTabla">
+                <tr>
+                    <td>primera fila</td>
+                </tr>
+            </tbody>
+        </table>
+
+    <script type="text/javascript">
         miRandom();
+        numMensajes();
     </script>
     </body>  
 </html>  
