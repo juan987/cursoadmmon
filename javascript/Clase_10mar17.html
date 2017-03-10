@@ -31,7 +31,8 @@
         }
 
         function validaMail(){
-            var regExp = /[@]/;
+            //var regExp = /[@]/;
+            var regExp = /[@\.]/;
             var texto = document.getElementById("mail").value;
             console.log('texto.match: ',texto.match(regExp));
             console.log('patron.exec: ',regExp.exec(texto));
@@ -40,6 +41,20 @@
                 document.getElementById("validaMail").innerHTML= "Email valido";
             }else{
                 document.getElementById("validaMail").innerHTML= "Email NO valido";
+            }
+        }
+
+        function validaTelefono(){
+            //var regExp = /[@]/;
+            var regExp = /[\+?{1}\d+^\D]/;
+            var texto = document.getElementById("telefono").value;
+            console.log('texto.match: ',texto.match(regExp));
+            console.log('patron.exec: ',regExp.exec(texto));
+            console.log('patron.test: ',regExp.test(texto));
+            if(regExp.test(texto)){
+                document.getElementById("validaTelefono").innerHTML= "Telefono valido";
+            }else{
+                document.getElementById("validaTelefono").innerHTML= "Telefono NO valido";
             }
         }
     </script>
@@ -61,6 +76,14 @@
 
     <br/>
     <p id="validaMail">Resultado:</p>
+    <br/>
+
+    <h3>Validar numero de telefono</h3>
+    Introduce un telefono:<input id="telefono" type="text">
+    <button type="button" onclick="validaTelefono()"> Validar telefono</button>
+
+    <br/>
+    <p id="validaTelefono">Resultado:</p>
     <br/>
 </body>
 </html>
