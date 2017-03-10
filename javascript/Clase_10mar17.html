@@ -29,17 +29,38 @@
             //document.getElementById("resultadoArray").innerHTML= texto;
             document.getElementById("resultadoArray").innerHTML= JSON.stringify(miObjeto);
         }
+
+        function validaMail(){
+            var regExp = /[@]/;
+            var texto = document.getElementById("mail").value;
+            console.log('texto.match: ',texto.match(regExp));
+            console.log('patron.exec: ',regExp.exec(texto));
+            console.log('patron.test: ',regExp.test(texto));
+            if(regExp.test(texto)){
+                document.getElementById("validaMail").innerHTML= "Email valido";
+            }else{
+                document.getElementById("validaMail").innerHTML= "Email NO valido";
+            }
+        }
     </script>
 </head>
 <body>
 
 
-    <h3>Arrays</h3>
+    <h3>Contador de palabras</h3>
     Introduce un texto:<input id="texto" type="text">
     <button type="button" onclick="cuentaPalabras()"> Cuenta palabras</button>
 
     <br/>
     <p id="resultadoArray">Resultado:</p>
+    <br/>
+
+    <h3>Validar correo electronico con expresiones regulares</h3>
+    Introduce un texto:<input id="mail" type="text">
+    <button type="button" onclick="validaMail()"> Validar Email</button>
+
+    <br/>
+    <p id="validaMail">Resultado:</p>
     <br/>
 </body>
 </html>
