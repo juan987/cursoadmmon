@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/javascript">
+
+    let usuarios = [];
+
+        function agregarUsuario(){
+            let usuario = {
+                "nombre" : "none",
+                "edad" : 1000,
+                "prefs" : [] 
+            };
+            let pref = "ninguna";
+            usuario.nombre = document.getElementById("nombre").value;
+            usuario.edad = document.getElementById("edad").value;
+            usuario.prefs.push(document.getElementById("pref").value)
+
+            usuarios.push(usuario);
+
+            //console.log('Usuarios actuales: ', usuarios);
+            console.log('Usuarios actuales: ', JSON.stringify(usuarios));
+            //document.getElementById("result").innerHTML= usuarios;
+            document.getElementById("result").innerHTML= JSON.stringify(usuarios);
+
+        }
+
+        function agregarNuevaPref(){
+
+            for(var i=0; i<usuarios.length; i++){
+                if(usuarios[i].nombre == document.getElementById("nombre").value){
+                    usuarios[i].prefs.push(document.getElementById("pref").value)
+                }
+            }
+
+            //console.log('Usuarios actuales: ', usuarios);
+            console.log('Usuarios actuales: ', JSON.stringify(usuarios));
+            //document.getElementById("result").innerHTML= usuarios;
+            document.getElementById("result").innerHTML= JSON.stringify(usuarios);
+
+        }
+
+
+    </script>
+</head>
+<body>
+    Introduce nombre:<input id="nombre" type="text">
+    <br/>
+    <br/>
+    Introduce edad;<input id="edad" type="text">
+    <br/>
+    <br/>
+    Introduce un comentario:<input id="pref" type="text">
+    <br/>
+
+    <p id="result">Resultado</p>
+    <button type="button" onclick="agregarUsuario()"> Agregar usuario</button>
+    <button type="button" onclick="agregarNuevaPref()"> Agregar nueva preferencia</button>
+
+    
+</body>
+</html>
