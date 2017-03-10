@@ -3,6 +3,7 @@
 <head>
 
     <script type="text/javascript">
+    //ESTE FICHERO ES LA CLASE DEL 9MAR17
        function esPrimo(){
 
            var contador = 2;
@@ -144,14 +145,22 @@
         }
 
         //ejercicio con arguments.lengt y callee
+        //Function suma se usa en la console de chrome directamente.
         function suma(a,b){
             var totalArg = arguments.length;
+            console.log('argumentos, numero: ', totalArg);
             if (totalArg == 0 || totalArg == 1){
                 console.log('introduzca dos o mas argumentos');
                 return;
             }
 
+            var sum = 0;
             //for(var i=o; i<=)
+            for(var i=0; i<arguments.length; i++){
+                sum += arguments[i];
+            }
+
+            console.log('la suma es: ', sum);
         }
 
     </script>
