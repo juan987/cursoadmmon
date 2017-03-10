@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script type="text/javascript">
+    //ESTE FICHERO ES LA CLASE DEL 10MAR17
+        function cuentaPalabras(){
+            var texto = document.getElementById("texto").value;
+            var textoSplit =  texto.split(" ");
+            console.log('split: ', textoSplit);
+            var textoReplica = textoSplit.slice(0);
+            console.log('split replica: ', textoReplica);
+            console.log('las claves del array asociativo son: ', Object.keys(textoSplit));
+
+            miObjeto = {};
+            for(var i=0; i<textoSplit.length; i++){
+                var contadorDeIguales = 0;
+                for(var i2 = 0; i2<textoReplica.length; i2++){
+                    //if(textoSplit[i]==textoReplica[i2]){//Asi me lo hizo Javier y funciona bien
+                    if(textoSplit[i].localeCompare(textoReplica[i2]) == 0){//tb funciona!!!!!
+                        contadorDeIguales ++;
+                    } 
+                }
+                miObjeto[textoSplit[i]] = contadorDeIguales;
+
+                //miObjeto.textoSplit[]
+            }
+            console.log('comparacion: ' +JSON.stringify(miObjeto));
+            //document.getElementById("resultadoArray").innerHTML= texto;
+            document.getElementById("resultadoArray").innerHTML= JSON.stringify(miObjeto);
+        }
+    </script>
+</head>
+<body>
+
+
+    <h3>Arrays</h3>
+    Introduce un texto:<input id="texto" type="text">
+    <button type="button" onclick="cuentaPalabras()"> Cuenta palabras</button>
+
+    <br/>
+    <p id="resultadoArray">Resultado:</p>
+    <br/>
+</body>
+</html>
